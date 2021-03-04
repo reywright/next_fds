@@ -8,8 +8,16 @@
     "start": "next start"
   },
   "dependencies": {
+    "@cbinsights/fds": "^11.0.577",
+    "classcat": "^5.0.3",
+    "classnames": "^2.2.6",
+    "dayjs": "^1.10.4",
     "next": "10.0.7",
-    "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "prop-types": "^15.7.2",
+    "raf-schd": "^4.0.2",
+    "react": "^17.0.1",
+    "react-day-picker": "^7.4.8",
+    "react-dom": "^17.0.1",
+    "react-transition-group": "^4.4.1"
   }
 }
