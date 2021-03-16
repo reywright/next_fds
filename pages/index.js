@@ -1,10 +1,40 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import BoardIcon from "@cbinsights/fds/lib/icons/react/BoardIcon";
 import styles from "../styles/Home.module.css";
-import { Button } from "@cbinsights/fds/lib/components";
+import {
+  Avatar,
+  Badge,
+  Button,
+  ButtonGroup,
+  Checkbox,
+  Chip,
+  CornerPosition,
+  IconButton,
+  Popover,
+  StackedButton,
+  ZeroState,
+  TextInput,
+  Indicator,
+  SeparatorList,
+  DropdownButton,
+  Flex,
+  FlexItem,
+  FloatingAction,
+  InputGroup,
+  Menu,
+  MenuItem,
+  Radio,
+  Tooltip,
+  DateInput,
+} from "@cbinsights/fds/lib/components";
 
 const Dialog = dynamic(() => import("@cbinsights/fds/lib/components/Dialog"), {
+  ssr: false,
+});
+
+const Prompt = dynamic(() => import("@cbinsights/fds/lib/components/Dialog"), {
   ssr: false,
 });
 
@@ -33,7 +63,67 @@ export default function Home(props) {
 
         <div className="margin--top--l">
           <div className="margin--bottom">
+            <Avatar name="Samuel Jackson" />
+
             <Button label="Trigger Dialog" onClick={() => open()} />
+            <ButtonGroup
+              buttons={[
+                { label: "Lorem", disabled: true },
+                { label: "Ipsum" },
+                { label: "Dolor", isActive: true },
+              ]}
+            />
+            <Checkbox label="I agree to receive spam" name="spam" />
+            <CornerPosition decoration={<Badge label="42" />}>
+              <Chip label="Hello world" />
+            </CornerPosition>
+            <ZeroState label="ZeroState label" Icon={BoardIcon} />
+            <IconButton label="Add to Board" Icon={BoardIcon} theme="aqua" />
+            <FloatingAction
+              label="Add to Board"
+              Icon={BoardIcon}
+              theme="aqua"
+            />
+            <StackedButton isActive label="I am STACKED" Icon={BoardIcon} />
+            <TextInput label="Text Input" value="yeah" />
+            <Indicator label="Indicator" />
+            <SeparatorList
+              items={[
+                "New York",
+                "Paris",
+                "Schenectady",
+                "Los Angeles",
+                "Hong Kong",
+              ]}
+              separator="✈️"
+            />
+            <InputGroup>
+              <select name="type">
+                <option value="1">Horse-size duck</option>
+                <option value="2">Duck-size horse</option>
+              </select>
+              <input placeholder="Name of pet" type="text" />
+              <select name="color">
+                <option value="1">Yellow</option>
+                <option value="2">Brown</option>
+                <option value="2">White</option>
+              </select>
+            </InputGroup>
+            <Menu trigger={<Button hasCaret label="Menu trigger" />}>
+              <MenuItem onSelect={() => {}}>Copy</MenuItem>
+              <MenuItem onSelect={function noRefCheck() {}}>Delete</MenuItem>
+            </Menu>
+            <Radio
+              value="ok"
+              label="I agree to receive spam"
+              name="radio-group-name"
+              showLabel
+            />
+            <Flex>
+              <FlexItem>
+                <DropdownButton>Dropdown Button</DropdownButton>
+              </FlexItem>
+            </Flex>
           </div>
           <Dialog
             isOpen={isOpen}
